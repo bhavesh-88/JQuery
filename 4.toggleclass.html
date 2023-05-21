@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 600px;
+            margin: 0 auto;
+            border: solid 2px;
+            transition: 1s;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+
+        }
+        .bg{
+            background-color: crimson;
+            color: aliceblue;
+        }
+        .class{
+            padding: 100px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="box">
+        <h1>jquary</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptates asperiores repellendus minima illo? Vitae, enim reiciendis sint quidem incidunt accusamus saepe iure accusantium quibusdam aliquam ut aperiam dicta provident!</p>
+    </div>
+
+    <button  id="addclass">addcalss</button>
+    <button  id="removeclass">removeclass</button>
+    <button  id="toggleclass">toggleclass</button>
+
+    <script>
+        $("#addclass").dblclick(function () {
+            $('#box').addClass('bg class')
+        });
+        $("#removeclass").click(function () {
+            $('#box').removeClass('bg class')
+        });
+        $("#toggleclass").click(function () {
+            $('#box').toggleClass('bg class')
+        });
+    </script>
+    
+</body>
+</html>
