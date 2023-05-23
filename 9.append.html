@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            background-color: burlywood;
+            width: 600px;
+        }
+    </style>
+          <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+
+    <div id="box">
+        <h1>after add</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus temporibus exercitationem provident adipisci nam quam quia, culpa consequatur voluptas animi tempora cum quidem officiis quo eligendi, minima, sed molestias sint!
+        </p>
+        <!-- here -->
+    </div>
+     <button id="appand">
+        appand
+     </button>
+
+    <script>
+        $('#appand').click(function () {
+            // inside the div
+            $('#box').append('<h2> name </h2>')
+        })
+    </script>
+    
+</body>
+</html>
