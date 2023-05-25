@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            background: url();
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 45px;
+            width: 700px;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, .1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+        }
+
+        .container h1 {
+            text-align: center;
+            margin: 0 0 40px;
+            padding: 0;
+            color: rgb(66, 133, 244);
+            letter-spacing: 2px;
+        }
+
+        .container input {
+            padding: 5px;
+            margin-bottom: 30px;
+            width: 55%;
+            /* box-shadow: none; */
+            outline: none;
+            border: none;
+            border-bottom: 2px solid #999;
+
+        }
+
+        .container input[type="submit"] {
+            border-radius: 25px;
+            font-size: 20px;
+            height: 40px;
+            cursor: pointer;
+            background: rgb(66, 133, 244);
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        .container input[type="submit"]:hover {
+            background: #34F458;
+            color: #fff;
+        }
+
+        .container form div {
+            position: relative;
+        }
+
+        .container form div label {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .container input:focus~label,
+        .container input:valid~label{
+            left: 0;
+            top: -20px;
+            color: rgb(66, 133, 244);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .container input:focus,
+        .container input:valid {
+            border-bottom: 2px solid rgb(66, 133, 244);
+        }
+
+        .error {
+            top: 12px;
+            color: red;
+            font-size: 15px;
+            font-family: Helvetica;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>REGISTER</h1>
+        <form action="" id="form">
+            <div>
+                <input type="text" name="" id="fname" required="">
+                <span class="error" id="fname_error"></span>
+                <label for="fname">First Name</label>
+            </div>
+            <div>
+                <input type="text" name="" id="lname" required="">
+                <span class="error" id="lname_error"></span>
+                <label for="lname">Last Name</label>
+            </div>
+            <div>
+                <input type="email" name="" id="email" required="">
+                <span class="error" id="email_error"></span>
+                <label for="email">Email Id</label>
+            </div>
+            <div>
+                <input type="password" name="" id="password" required="">
+                <span class="error" id="password_error"></span>
+                <label for="password">Password</label>
+            </div>
+            <div>
+                <input type="password" name="" id="cpassword" required="">
+                <span class="error" id="cpassword_error"></span>
+                <label for="cpassword">Confirm Password</label>
+            </div>
+            <input type="submit" value="Register" name="">
+        </form>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#fname_error").hide();
+            $("#lname_error").hide();
+            $("#email_error").hide();
+            $("#password_error").hide();
+            $("#cpassword_error").hide();
+
+            var error_fname = false;
+            var error_lname = false;
+            var error_email = false;
+            var error_password = false;
+            var error_cpassword = false;
+
+            $("#fname").focusout(function () {
+                check_fname();
+            });
+
+            $("#lname").focusout(function () {
+                check_lname();
+            });
+
+            $("#email").focusout(function () {
+                check_email();
+            });
+
+            $("#password").focusout(function () {
+                check_password();
+            });
+
+            $("#cpassword").focusout(function () {
+                check_cpassword();
+            });
+
+
+            function check_fname() {
+                var pattern = /^[a-zA-Z]*$/;
+                var fname = $("#fname").val();
+
+                if(pattern.test(fname) && fname !== ''){
+                    $("#fname_error").hide();
+                    $("#fname").css("border-bottom", "2px solid #34F458");
+                }else{
+                    $("#fname_error").show();
+                    $("#fname_error").html("Should contain only Characters");
+                    $("#fname").css("border-bottom", "2px solid #F90A0A");
+                    error_fname = true;
+                }
+            }
+
+            function check_lname() {
+                var pattern = /^[a-zA-Z]*$/;
+                var lname = $("#lname").val();
+
+                if(pattern.test(lname) && lname !== ''){
+                    $("#lname_error").hide();
+                    $("#lname").css("border-bottom", "2px solid #34F458");
+                }else{
+                    $("#lname_error").show();
+                    $("#lname_error").html("Should contain only Characters");
+                    $("#lname").css("border-bottom", "2px solid #F90A0A");
+                    error_lname = true;
+                }
+            }
+
+            function check_email() {
+                var pattern =/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                var email = $("#email").val();
+
+                if(pattern.test(email) && email !== ''){
+                    $("#email_error").hide();
+                    $("#email").css("border-bottom", "2px solid #34F458");
+                }else{
+                    $("#email_error").show();
+                    $("#email_error").html("Invalid Email");
+                    $("#email").css("border-bottom", "2px solid #F90A0A");
+                    error_lname = true;
+                }
+            }
+
+            function check_password() {
+                var password = $("#password").val().length;;
+
+                if(password < 8){
+                    $("#password_error").html("Atleast 8 Characters");
+                    $("#password_error").show();
+                    $("#password").css("border-bottom", "2px solid #F90A0A");
+                    error_password = true;
+                }else{
+                    $("#password_error").hide();
+                    $("#password").css("border-bottom", "2px solid #34F458");
+                }
+            }
+
+            function check_cpassword() {
+                var password = $("#password").val();
+                var cpassword = $("#cpassword").val();
+                if (password !== cpassword) {
+                    $("#cpassword_error").html("Passwords Did not Matched");
+                    $("#cpassword_error").show();
+                    $("#cpassword").css("border-bottom", "2px solid #F90A0A");
+                    error_cpassword = true;
+                } else {
+                    $("#cpassword_error").hide();
+                    $("#cpassword").css("border-bottom", "2px solid #34F458");
+                }
+            }
+
+            $("#form").submit(function () {
+                error_fname = false;
+                error_lname = false;
+                error_email = false;
+                error_password = false;
+                error_cpassword = false;
+
+                check_fname();
+                check_lname();
+                check_email();
+                check_password();
+                check_cpassword();
+
+
+                if(error_fname === false && error_lname === false && error_email === false && error_password === false && error_cpassword === false){
+                    alert("Registration Successfull");
+                    return true;
+                }else {
+                    alert("Please Fill the form Correctly");
+                    return false;
+                }
+            });
+            
+        });
+
+    </script>
+</body>
+
+</html>

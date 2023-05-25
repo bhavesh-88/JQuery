@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f0f1f2;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center text-success">Form Validation</h2>
+
+                        <form id="register" action="" method="post">
+                            <div class="mb-3">
+                                <label>User Name</label>
+                                <input name="username" type="text" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label> Email Address</label>
+                                <input name="email" type="text" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Phno</label>
+                                <input name="phno" type="text" class="form-control">
+                            </div>
+
+                            <div class="gen">
+                                <label>Gender</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input name="gender" class="form-check-input" type="radio" value="Male">
+                                    <label class="form-check-label">Male</label> <br>
+
+                                    <input name="gender" class="form-check-input" type="radio" value="Female">
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                            </div><br>
+
+                            <select name="course" id="select_field" class="course form-select" aria
+                                label="Default select example">
+                                <option value="">Courses</option>
+                                <option value="BCA">BCA</option>
+                                <option value="MCA">MCA</option>
+                                <option value="BTECH">BTECH</option>
+                                <option value="MTECH">MTECH</option>
+                            </select> <br>
+
+                            <div class="mb-3">
+                                <label>Password</label>
+                                <input id="password" name="password" type="password" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label>Confirm Password</label>
+                                <input name="cpassword" type="text" class="form-control">
+                            </div>
+                            <button class="btn btn-primary col-md-4 offset-md-4">Register</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $(function () {
+            var $registerForm = $("#register");
+
+            $registerForm.validate({
+                rules: {
+                    username: {
+                        required: true,
+                        lattersonly: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phno: {
+                        required: true,
+                        numericonly: true,
+                        minlength: 10,
+                        maxlength: 12
+                    },
+                    gender: {
+                        required: true
+                    },
+                    course: {
+                        required: true
+                    },
+                    password: {
+                        required: true,
+                        all: true
+                    },
+                    cpassword: {
+                        required: true,
+                        equalTo: '#password'
+                    }
+
+                },
+                messages: {
+                    username: {
+                        required: 'username must be required',
+                        lattersonly: 'invalid name'
+                    },
+
+                    email: {
+                        required: 'email must be required',
+                        email: 'email invalid'
+                    },
+                    phno: {
+                        required: 'phno must be required',
+                        numericonly: 'Phno invalid',
+                        minlength: 'min 10 digit',
+                        maxlength: 'mx 12 digit'
+                    },
+                    gender: {
+                        required: 'gender must be required'
+                    },
+                    course: {
+                        required: 'course must be required'
+                    },
+                    password: {
+                        required: 'password must be required',
+                        all: 'space is not allowed'
+                    },
+                    cpassword: {
+                        required: 'confirm password must be required',
+                        equalTo: 'password mismatch'
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    if (element.is(":radio")) {
+                        error.appendTo(element.parents(".gen"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            })
+
+            jQuery.validator.addMethod('lattersonly', function (value, element) {
+                return /^[^-\s][a-zA-Z_\s-]+$/.test(value);
+            });
+
+            jQuery.validator.addMethod('numericonly', function (value, element) {
+                return /^[0-9]+$/.test(value);
+            });
+
+            jQuery.validator.addMethod('all', function (value, element) {
+                return /^[^-\s][a-zA-Z0-9_\s-]+$/.test(value);
+            });
+        })
+    </script>
+
+
+</body>
+
+</html>
