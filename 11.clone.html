@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 600px;
+
+        }
+
+        #box {
+            background-color: darkgoldenrod;
+        }
+
+        #box2 {
+            background-color: rgb(184, 11, 11);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</head>
+
+<body>
+
+    <div id="box">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem debitis, facilis aliquid quas aut deserunt magnam commodi facere tempora quisquam ullam veniam nostrum placeat? Dolorum eos exercitationem nostrum voluptatibus dolor. </h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque laudantium distinctio dolore officiis.
+            Deserunt iusto sapiente repellat tenetur nisi. Impedit quidem fuga iusto ullam fugiat tenetur aperiam
+            officiis aut neque!</p>
+        <h2>data2</h2>
+    </div>
+
+    <div id="box2">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, ipsam. Mollitia aut obcaecati eaque iste!
+            Asperiores dicta fuga molestias architecto fugiat, dolore dolorum? Quia in laborum iure quasi eum sunt.</p>
+    </div>
+
+    <button id="cln">clone</button>
+
+    <script>
+        // $(document).ready(function () {
+        //     $('#cln').click(function () {
+        //         $('#box h2').clone().prependTo('#box2')
+        //     });
+        // })
+
+        $("#cln").click(function(){
+            // $("#box h2").clone().prependTo("#box2")
+            $("#box h2").clone().appendTo("#box2")
+        })
+    </script>
+</body>
+
+</html>
