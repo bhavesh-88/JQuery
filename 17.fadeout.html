@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* width: 100px; */
+            height: 100px;
+            margin: 5px;
+            /* display: none; */
+        }
+
+        #box1 {
+            background-color: red;
+        }
+
+        #box2 {
+            background-color: rgb(21, 0, 255);
+        }
+
+        #box3 {
+            background-color: rgb(255, 255, 0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        body {
+            font-family: 'Istok Web', sans-serif;
+        }
+        .bg{
+            background-color: blue;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</head>
+
+<body>
+    <button id="fadeout">fadeout</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+    <div class="hidden">
+        <h1>We are the champions!</h1>
+      </div>
+      <p>Refresh the page to see the jQuery slowly fade in the text above.</p>
+
+    <script>
+        $('#fadeout').click(function () {
+            $('#box1').fadeOut(5000)
+            $('#box2').fadeOut(5000)
+            $('#box3').fadeOut(5000)
+        })
+
+        $(document).ready(function () {
+            $('div.hidden').fadeIn(2000).addClass('bg');
+        });
+    </script>
+</body>
+
+</html>
