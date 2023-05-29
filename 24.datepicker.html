@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./jquery/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="./jquery/jquery-ui.min.js"></script>
+    <style>
+        div{
+            position: absolute;
+            width: 500px;
+            height: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form action="">
+            <label for="">Username</label>
+            <input type="text" name="" id="">
+            <br>
+            <label for="">Email</label>
+            <input type="email" name="" id="">
+            <br>
+            <label for="">DOB</label>
+            <input type="text" id="datepicker">
+        </form>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#datepicker").datepicker({
+                // dateFormat:"dd-mm-yy",
+                dateFormat:"yy-mm-dd",
+                changeMonth:true,
+                changeYear:true,
+                
+                //set range
+                // maxDate:'3D',
+                
+                maxDate:'3Y',
+                minDate:'-3M',
+                
+            });
+        });
+    </script>
+</body>
+
+</html>
