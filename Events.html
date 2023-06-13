@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <p>This my jQuery</p>
+
+    <button id="btn">Click</button>
+    <br><br>
+    <div id="div" style="background-color: brown;height:300px;width: 300px;"></div>
+
+
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            
+        
+            $("#btn").click(function(){
+                $("#div").hide();
+            });
+
+            $("#btn").dblclick(function(){
+                $(this).hide();
+            });
+
+
+            // $("#div").mouseenter(function(){
+            //     $("#div").hide();
+            // });
+
+
+            // $("#div").mouseleave(function(){
+            //     $("#div").show();
+            // });
+
+
+            
+            // $("#div").hover(function(){
+            //     $("#div").hide();
+            // },function () {
+            //     $("#div").show();
+            // }
+            // );
+
+            $("#div").on({
+                click:function(){
+                    $(this).css("background-color","red")
+                },
+                mouseenter:function(){
+                    $(this).css("background-color","green")
+                },
+                mouseleave:function(){
+                    $(this).css("background-color","black")
+                },
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

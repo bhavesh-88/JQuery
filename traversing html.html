@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+
+     <ul id="list"><!-- (grandparent) -->
+        <li><!-- (parent) -->
+            <span id="span1">item1</span><!-- (child) -->
+        </li>
+        <li><!-- (parent) -->
+            <span id="span2">item2</span><!-- (child) -->
+        </li>
+    </ul>
+
+
+    <ul>
+        <li>child1</li>
+        <li>child2</li>
+        <li>child3</li>
+        <li id="item1">child4</li>
+        <li>child5</li>
+        <li>child6</li>
+        <li id="item2">child7</li>
+        <li>child8</li>
+        <li>child9</li>
+        <li>child10</li>
+    </ul>
+
+    <script>
+        // select parent
+
+        // $("#span1").parent().css("border","1px solid red");
+        
+        // var ele= $("#span1").parents()
+        // ele.css("border","1px solid brown");   // span all parent
+
+        // var ele= $("#span1").parentsUntil("body")
+        // ele.css("border","1px solid black");   // limit
+
+
+
+
+        // select child
+
+        // var ele= $("#list").children()     // direact childern
+        // ele.css("border","1px solid brown"); 
+        
+        var ele= $("#list").find("#span2")     // particular find a child
+        ele.css("border","1px solid brown"); 
+        
+
+
+
+        // siblings
+
+        // var sib= $("#item1").siblings();
+        // sib.css("border","1px solid brown");    // select all siblings  without child4
+
+        // var sib= $("#item1").next();
+        // sib.css("border","1px solid brown");    // select next child child5
+
+        // var sib= $("#item1").next().next();
+        // sib.css("border","1px solid brown");    // select next next child child6
+
+        // var sib= $("#item1").nextAll();
+        // sib.css("border","1px solid brown");    // select all next child
+
+        // var sib= $("#item1").nextUntil("#item2");
+        // sib.css("border","1px solid brown");    // range 
+
+
+        // var sib= $("#item1").prev();
+        // sib.css("border","1px solid brown");    // select prev child child5
+
+        // var sib= $("#item1").prevAll();
+        // sib.css("border","1px solid brown");    // select all prev child
+
+        // var sib= $("#item2").prevUntil("#item1");
+        // sib.css("border","1px solid brown");    // range 
+
+
+
+
+        // no conflict method
+        //$.noConflict();
+        // const jq = $.noConflict();
+
+        //use
+        // jQuery("#list").click();
+        // jQ("#list").click();
+
+    </script>
+
+</body>
+</html>

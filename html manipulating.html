@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <style>
+            #div{
+                display: inline-block;
+            }
+            .box{
+                height: 150px;
+                width: 150px;
+                padding: 20px;
+                margin: 10px;
+                border: 5px solid black;
+                display: inline-block;
+            }
+            .red{
+                background-color: red;
+            }
+            .circle{
+                border-radius: 50%;
+            }
+        </style>
+
+</head>
+<body>
+    <p>This my jQuery</p>
+
+    <button id="btn1">Button1</button>
+    <button id="btn2">Button2</button>
+    <br><br>
+    <div id="div" style="background-color: brown;height:300px;width: 300px;">
+        <p>this is a p tag</p>
+        <a href="">link</a>
+    </div>
+    <div id="box" class="box red"></div>
+    <br><br>
+    <input type="text" name="" id="input1" class="green">
+
+
+
+
+    <!-- add html element -->
+    <!-- before -->
+    <ul id="list">
+        <!-- prepend -->
+        <li>python</li>
+        <li>java</li>
+        <li>nodejs</li>
+        <!-- append -->
+    </ul>
+    <!-- after -->
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            // $('#btn1').click(function () {
+            //     var text=$("#div").text();       // fetch data without tag
+            //     alert(text);                
+            // });
+            
+            // $('#btn2').click(function () {
+            //     var text=$("#div").html();     // fetch data with tag
+            //     alert(text);                
+            // });
+
+
+
+            // $('#btn2').click(function () {
+            //     $("#div").html("<h1>heading</h1>");     // change text with tag
+            // });
+
+            // $('#btn1').click(function () {
+            //     $("#div").text("hy my name is bhavesh");   // only change text
+            // });
+
+
+
+            // $('#btn1').click(function () {
+            //     var inp=$("#input1").val();       // get value
+            //     alert(inp);                
+            // });
+    
+            // $('#btn2').click(function () {
+            //     $("#input1").val("hy my name is bhavesh");   // set value
+            // });
+
+
+
+            // get and set attribute
+            // $('#btn1').click(function () {
+            //     var inp=$("#input1").attr("type");       // get value
+            //     alert(inp);                
+            // });
+    
+            // $('#btn2').click(function () {
+            //     $("#input1").attr("class","black");   // set value
+            // });
+
+            // $('#btn2').click(function () {
+            //     $("#input1").attr({
+            //         "class":"black",
+            //         "name":"white",
+            //     });                             // multiple
+            // });
+
+
+            
+
+            // add html element
+
+            // $('#btn2').click(function () {
+            //     $("#list").append("<li>Ruby</li>")
+            // });
+
+            // $('#btn1').click(function () {
+            //     $("#list").prepend("<li>.Net</li>")
+            // });
+
+            // $('#btn2').click(function () {
+            //     $("#list").after("hy cdfsdf fsdfsd")
+            // });
+
+            // $('#btn1').click(function () {
+            //     $("#list").before("<h1>Programming language</h1>")
+            // });
+
+            // $('#btn2').click(function () {
+            //     $("#list").empty();
+            // });
+
+            // $('#btn1').click(function () {
+            //     $("#list").remove();
+            // });
+
+
+
+
+            // addclass and remove
+
+            // $('#btn1').click(function () {
+            //     $("#box").addClass("circle black");
+            // });
+
+            // $('#btn2').click(function () {
+            //     $("#box").removeClass("circle red");
+            // });
+
+            // $('#btn1').click(function () {
+            //     $("#box").toggleClass("circle");
+            // });
+
+
+
+            // get css
+
+            // $('#btn1').click(function () {
+            //    var css= $("#box").css("background-color");
+            //    alert(css)
+            // });
+
+            // $('#btn2').click(function () {
+            //    $("#box").css("background-color","yellow");
+            // });
+
+            // $('#btn2').click(function () {
+            //    $("#box").css({
+            //     "background-color":"yellow",
+            //     "border":"5px solid black",
+            //    });
+            // });
+
+
+
+
+            // hight and width
+            // four types of hight and width
+
+            // normal height = normal height and width 
+
+            //  innerheight/innerwidht  =   hight+padding(both side),width+padding(both side)
+
+            //  outerheight/outerwidht  =   hight+padding(both side)+border(both side),width+padding(both side)+border(both side)
+
+            //  outerheight true/outerwidht true  =   hight+padding(both side)+border(both side)+margin(both side),width+padding(both side)+border(both side)+margin(both side);
+    
+            $('#btn1').click(function () {
+            //    var height= $("#box").height();
+            //    var height= $("#box").innerHeight();
+            //    var height= $("#box").outerHeight();
+               var height= $("#box").outerHeight(true);
+               alert(height);
+            });
+
+            // $('#btn2').click(function () {
+            // //    var width= $("#box").Width();
+            // //    var width= $("#box").innerWidth();
+            // //    var width= $("#box").outerWidth();
+            //     var width= $("#box").outerWidth(true);
+            //     alert(width),
+
+            // });
+            
+        });
+
+    </script>
+    
+</body>
+</html>
